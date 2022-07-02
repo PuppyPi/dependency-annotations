@@ -11,6 +11,7 @@ import java.lang.annotation.Target;
  * Eg, for making sure classes that are dynamically accessed are included!
  * 
  * (Note that this will cause a reference to the depended-upon class to be present in the source/imports, and bytecode constant pool, so there you go!  Whatever mechanisms are used to find implicit class dependencies will probably pick this up as well without any changes!  \:DD/  )
+ * (That is also why there is no "shallow" property here)
  */
 //Undocumented, definitely!!
 @Retention(RetentionPolicy.RUNTIME)  //DON'T FORGET THAT X'DD
