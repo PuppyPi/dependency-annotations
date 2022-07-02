@@ -30,8 +30,8 @@ public @interface DependencyDirectory
 	
 	
 	/**
-	 * If this is true, these dependencies are treated just like if there were a direct reference in the Java Bytecode! ^w~
-	 * If this is false, then if only shallow connections to each target are present in the code to be packaged, that target *itself* will NOT be scanned for dependencies!!
+	 * If this is true, then if only shallow connections to this target are present in the code to be packaged, the target *itself* will NOT be scanned for dependencies!!
+	 * If this is false, this dependency is treated just like if there were a direct reference in the Java Bytecode! ^w~
 	 */
-	boolean deep() default true;
+	boolean shallow() default false;
 }
