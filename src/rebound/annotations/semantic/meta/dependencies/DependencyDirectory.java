@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Note that this is exactly equivalent to specifying {@link DependencyFile} on the same class for all the files that happen to be in the folder at packaging-time, all with the same value of {@link DependencyFile#shallow()} as given here!
+ * This is like specifying {@link DependencyFile} on the same class for all the files in the given directory and subdirectory that happen to exist at packaging-time, all with the same value of {@link DependencyFile#shallow()} as given here!
  */
 //Undocumented, definitely!!
 @Retention(RetentionPolicy.RUNTIME)  //DON'T FORGET THAT X'DD
