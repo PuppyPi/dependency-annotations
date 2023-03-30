@@ -3,6 +3,7 @@ package rebound.io;
 import java.io.IOException;
 import java.io.InputStream;
 import rebound.annotations.semantic.meta.dependencies.DependencyFile;
+import rebound.util.res.SimpleOpenableResource;
 import com.sun.istack.internal.Nullable;
 
 /**
@@ -26,24 +27,11 @@ public interface OpenableResource
 	
 	/**
 	 * Anything using someclass.getClassLoader().getResourceAsStream(...) can just use this with <code>someclass</code> and a forward-slash in front of the resource path  :3
-	 * @param c Class for context (since Java can support multiple instances of the same class in different sibling ClassLoaders and different resource-lookup paths for different classes among other complexities)
-	 * @param p The resource path, relative to the class of absolute if it begins with a /
+	 * @param context Class for context (since Java can support multiple instances of the same class in different sibling ClassLoaders and different resource-lookup paths for different classes among other complexities)
+	 * @param pathname The resource path, relative to the class of absolute if it begins with a /
 	 */
-	public static OpenableResource from(Class c, String p)
+	public static OpenableResource from(Class context, String pathname)
 	{
-		return new OpenableResource()
-		{
-			@Override
-			public InputStream open()
-			{
-				return c.getResourceAsStream(p);
-			}
-			
-			@Override
-			public String toString()
-			{
-				return p.startsWith("/") ? p : '/'+c.getPackage().getName().replace('.', '/')+'/'+p;
-			}
-		};
+		return new SimpleOpenableResource(context, pathname);
 	}
 }
