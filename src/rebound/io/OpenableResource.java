@@ -3,6 +3,7 @@ package rebound.io;
 import java.io.IOException;
 import java.io.InputStream;
 import rebound.annotations.semantic.meta.dependencies.DependencyFile;
+import com.sun.istack.internal.Nullable;
 
 /**
  * This is useful in many cases for rewriting code to encapsulate resource pathnames into something much more useful and portable :)
@@ -18,7 +19,7 @@ public interface OpenableResource
 	/**
 	 * @return null on failure not an {@link IOException}, just like {@link Class#getResourceAsStream(String)}
 	 */
-	public InputStream open();
+	public @Nullable InputStream open();
 	
 	
 	
