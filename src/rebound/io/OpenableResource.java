@@ -2,9 +2,11 @@ package rebound.io;
 
 import java.io.IOException;
 import java.io.InputStream;
+
+import javax.annotation.Nullable;
+
 import rebound.annotations.semantic.meta.dependencies.DependencyFile;
 import rebound.util.res.SimpleOpenableResource;
-import com.sun.istack.internal.Nullable;
 
 /**
  * This is useful in many cases for rewriting code to encapsulate resource pathnames into something much more useful and portable :)
